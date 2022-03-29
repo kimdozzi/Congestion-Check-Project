@@ -4,7 +4,8 @@
 
 1. 도커 설치
 2. VcXsrv 설치
-
+3. 
+<br>
 
 
 ## 1.1. VcXsrv 세팅
@@ -22,6 +23,7 @@ export LIBGL_ALWAYS_INDIRECT=1
 
 `source ~/.bashrc`
 
+<br>
 
 
 ## 1.2. 도커 컨테이너 만들기
