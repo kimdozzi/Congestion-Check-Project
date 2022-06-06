@@ -1,4 +1,4 @@
-from darknetyolov4 import darknet
+from .darknetyolov4 import darknet
 import random
 import cv2
 import os
@@ -33,10 +33,10 @@ class PeopleCounter:
 
     def count_people(self, image_name):
         detections = self.image_detection(
-            image_name, self.network, self.class_names, self.class_colors, 0.25
+            image_name, self.network, self.class_names, self.class_colors, 0.3
         )
         cnt = 0
         for i in detections:
-            if i[0] == 'person' and float(i[1]) > 36.5 :
+            if i[0] == 'person':
                 cnt+=1
         return cnt
