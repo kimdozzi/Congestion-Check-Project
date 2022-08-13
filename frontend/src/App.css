@@ -1,4 +1,4 @@
-#App {
+/* #App {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
@@ -11,5 +11,9 @@
 
 .dark_mode {
   background-color: #1b1b1b;
-  color: #f4f4f4;
+  color: #f4f4f4; 
+} */
+
+.App {
+  text-align: center;
 }
