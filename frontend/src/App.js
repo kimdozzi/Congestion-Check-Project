@@ -1,10 +1,9 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 
-// 45:07
-const App = () => {
+function App() {
   return (
     <>
       <Navbar />
@@ -13,6 +12,6 @@ const App = () => {
       </Routes>
     </>
   );
-};
+}
 
 export default App;
