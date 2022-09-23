@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 import "../assets/HeroSection.css";
-import Map from "../components/Map";
+import Map from "./geolocation/Map";
 
 function HeroSection() {
   return (
