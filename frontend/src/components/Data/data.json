@@ -1,0 +1,16 @@
+[
+   {
+      "PlaceID": 1,
+      "Name": "스터디 카페",
+      "Latitude": 36.34,
+      "Longitude": 129.232,
+      "Class": "human"
+   },
+   {
+      "PlaceID": 2,
+      "Name": "맥도날드 드라이브 스루",
+      "Latitude": 36.243,
+      "Longitude": 129.232,
+      "Class": "car"
+   }
+]
