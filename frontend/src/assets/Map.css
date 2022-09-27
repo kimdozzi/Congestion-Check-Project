@@ -2,3 +2,12 @@
     border-radius: 7px;
     
 }
+
+.infowindow {
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: lightgreen;
+    padding: 5px;
+    background-color: white;
+    color: black;
+}
