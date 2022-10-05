@@ -7,4 +7,12 @@ function get_places() {
     });
 }
 
-export { get_places };
+function post_place(req_data) {
+    return axios({
+        method: 'POST',
+        url: '/postplace',
+        data: req_data
+    })
+}
+
+export { get_places, post_place };
