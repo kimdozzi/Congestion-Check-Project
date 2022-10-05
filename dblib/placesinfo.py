@@ -21,11 +21,16 @@ def server_to_db_places(db, cursor, datas):
     cursor.executemany(insert_sql, datas)
     db.commit()
 
+def server_to_db_place(db, cursor, data):
+    insert_sql = "INSERT INTO `place_info`(Name, Object, Latitude, Longitude) VALUES (%(Name)s, %(Object)s, %(Latitude)s, %(Longitude)s);"
+    cursor.execute(insert_sql, data)
+    db.commit()
+
 
 
 
 if __name__=="__main__":
-    conn = pymysql.connect(host='', port=, user='root', passwd='', db='congestion_db', charset='utf8')
+    conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='', db='congestion_db', charset='utf8')
     with conn:
         with conn.cursor() as cs:
             dt = [{
@@ -47,6 +52,14 @@ if __name__=="__main__":
                 "Longitude": 129.0428
             }]
 
-            server_to_db_places(conn, cs, dt)
+            dt2 = {
+                'Name': 'dfd',
+                'object': 'uman',
+                'Latitude': 34.232,
+                'Longitude': 124.333
+            }
+
+            #server_to_db_places(conn, cs, dt)
+            server_to_db_place(conn, cs, dt2)
 
             print(db_to_server_places(conn, cs))
