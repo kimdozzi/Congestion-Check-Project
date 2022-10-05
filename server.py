@@ -1,28 +1,24 @@
 from flask import Flask, send_from_directory, request, jsonify, Response
+from dblib import placesinfo
+import pymysql
 import os
 import time
+
+ht='localhost'
+pt=3306
+pw=''
+
+def db_connect():
+    return pymysql.connect(host=ht, port=pt, user='root', passwd=pw, db='congestion_db', charset='utf8')
 
 app = Flask(__name__, static_url_path='/', static_folder='build')
 
 @app.route('/places',methods=['GET'])
 def get_places():
-    res = [
-        {
-            "PlaceID":1,
-            "Name": "스터디 카페",
-            "Latitude": 35.13476791445124,
-            "Longitude": 129.1028642118515,
-            "Object": "human"
-        },
-        {
-            "PlaceID": 2,
-            "PlaceID":1,
-            "Name": "드라이브 스루",
-            "Latitude": 35.135,
-            "Longitude": 129.106,
-            "Object": "car"
-        }
-    ]
+    conn = db_connect()
+    with conn:
+        with conn.cursor() as cursor:
+            res = placesinfo.db_to_server_places(conn, cursor)
     return jsonify(res)
 
 @app.route('/')
