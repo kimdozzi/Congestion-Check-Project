@@ -21,6 +21,22 @@ def get_places():
             res = placesinfo.db_to_server_places(conn, cursor)
     return jsonify(res)
 
+@app.route('/postplace',methods=['POST'])
+def post_places():
+    conn = db_connect()
+    new_data = request.get_json()
+    with conn:
+        with conn.cursor() as cursor:
+            try:
+                placesinfo.server_to_db_place(conn, cursor, new_data)
+            except KeyError:
+                return Response("", status=400)
+            except Exception as e:
+                print(e)
+                return Response("", status=500)
+    return Response("", status=200)
+
+
 @app.route('/')
 def index_html(): # 루트에서는 index.html을 response로 보냄
      return app.send_static_file('index.html')
