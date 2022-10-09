@@ -17,7 +17,7 @@
 }
 
 .service-mainpage__map {
-    height: 68vh;
+    height: 80vh;
     width: 100%;
     display: flex;
     flex-direction: column;
