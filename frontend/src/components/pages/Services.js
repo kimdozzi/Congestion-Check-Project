@@ -77,6 +77,7 @@ export default function Services() {
             </button>
           </form>
         </section>
+        <div className="markerData"></div>
       </div>
       <div className="service-mainpage__map">
         <ServicesMap />

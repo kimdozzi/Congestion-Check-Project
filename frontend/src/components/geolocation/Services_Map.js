@@ -29,7 +29,17 @@ function Map() {
 
       // 마커 위치를 클릭한 위치로 옮깁니다
       marker.setPosition(latlng);
-      //   latlng.getLat(),latlng.getLng()
+
+      let resultDiv = document.createElement("div");
+      let markerData = document.querySelector(".markerData");
+      markerData.appendChild(resultDiv);
+
+      let message = "클릭한 위치의 위도는 " + latlng.getLat() + " 이고, ";
+      message += "경도는 " + latlng.getLng() + " 입니다";
+
+      //   markerData.innerHTML = message;
+      alert(message);
+      console.log(message);
     });
 
     get_places()
