@@ -11,6 +11,7 @@ function Map() {
       center: new kakao.maps.LatLng(35.1380032, 129.1011432),
     };
     let kakaoMap = new kakao.maps.Map(container, options);
+
     get_places()
       .then((res) => {
         for (let i = 0; i < res.data.length; i++) {
