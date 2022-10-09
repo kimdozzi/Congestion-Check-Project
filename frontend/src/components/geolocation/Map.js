@@ -14,11 +14,20 @@ function Map() {
     get_places()
       .then((res) => {
         for (let i = 0; i < res.data.length; i++) {
+
+          var imageSrc = res.data[i].Object == "human" ? '/images/marker0.png' : '/images/marker1.png', // 마커이미지의 주소입니다    
+            imageSize = new kakao.maps.Size(29, 42), // 마커이미지의 크기입니다
+            imageOption = {offset: new kakao.maps.Point(14, 42)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+          
+          // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+          var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+          
           let marker = new kakao.maps.Marker({
             position: new kakao.maps.LatLng(
               res.data[i].Latitude,
               res.data[i].Longitude
             ),
+            image: markerImage
           });
           marker.setMap(kakaoMap);
 
