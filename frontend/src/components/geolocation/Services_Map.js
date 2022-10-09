@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import "assets/Map.css";
-import { get_places } from "restapi/places";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 const { kakao } = window;
 
-function Map() {
+function Map(props) {
   useEffect(() => {
     let container = document.getElementById("map");
     let options = {
@@ -29,57 +29,10 @@ function Map() {
 
       // 마커 위치를 클릭한 위치로 옮깁니다
       marker.setPosition(latlng);
+      //   latlng.getLat(),latlng.getLng()
 
-      let resultDiv = document.createElement("div");
-      let markerData = document.querySelector(".markerData");
-      markerData.appendChild(resultDiv);
-
-      let message = "클릭한 위치의 위도는 " + latlng.getLat() + " 이고, ";
-      message += "경도는 " + latlng.getLng() + " 입니다";
-
-      //   markerData.innerHTML = message;
-      alert(message);
-      console.log(message);
+      props.setLatLng(latlng.getLat(), latlng.getLng());
     });
-
-    get_places()
-      .then((res) => {
-        for (let i = 0; i < res.data.length; i++) {
-          let marker = new kakao.maps.Marker({
-            position: new kakao.maps.LatLng(
-              res.data[i].Latitude,
-              res.data[i].Longitude
-            ),
-          });
-          marker.setMap(kakaoMap);
-
-          // Add infowindow
-          let infowindow = new kakao.maps.CustomOverlay({
-            clickable: true,
-            content: `<div id="p${res.data[i].PlaceID}" class="infowindow">
-            <h1>${res.data[i].Name}</h1>
-            <h2>${res.data[i].Object} : 6</h2>
-            <button class="close">X</button>
-            </div>`,
-            position: marker.getPosition(),
-            yAnchor: 1.2,
-            zIndex: 1000,
-          });
-
-          kakao.maps.event.addListener(marker, "click", () => {
-            infowindow.setMap(kakaoMap);
-            let clsbtn = document.querySelector(
-              `#p${res.data[i].PlaceID} .close`
-            );
-            clsbtn.addEventListener("click", () => {
-              infowindow.setMap(null);
-            });
-          });
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
   }, []);
 
   return (

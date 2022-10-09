@@ -80,7 +80,10 @@ export default function Services() {
         <div className="markerData"></div>
       </div>
       <div className="service-mainpage__map">
-        <ServicesMap />
+        <ServicesMap setLatLng={(lat, lng) => {
+          setLatitude(lat);
+          setLongitude(lng);
+        }}/>
       </div>
     </div>
   );
