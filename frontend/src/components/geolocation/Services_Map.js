@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "assets/Map.css";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 const { kakao } = window;
 
