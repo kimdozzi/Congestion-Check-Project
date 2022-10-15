@@ -1,5 +1,5 @@
 from flask import Flask, send_from_directory, request, jsonify, Response
-from dblib import placesinfo
+from dblib import placesinfo, congestioninfo
 import pymysql
 import os
 import time
@@ -35,6 +35,21 @@ def post_places():
                 print(e)
                 return Response("", status=500)
     return Response("", status=200)
+
+@app.route('/congestion', methods=['GET'])
+def get_congestion():
+    try:
+        pid = request.args.get('placeid')
+        if pid == None:
+            return Response("", status=400)   
+        conn = db_connect()
+        with conn:
+            with conn.cursor() as cursor:
+                res = congestioninfo.db_to_server_congestions(conn, cursor, pid)
+        return jsonify(res)
+    except Exception as e:
+        print(e)
+        return Response("",status=500)
 
 
 @app.route('/')
