@@ -4,10 +4,9 @@
 }
 
 .infowindow {
-    border-radius: 20px;
+    border-radius: 10px;
     border-width: 2px;
-    border-color: lightgreen;
     padding: 5px;
-    background-color: white;
+    background-color: yellow;
     color: black;
 }
