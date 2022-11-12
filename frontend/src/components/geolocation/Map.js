@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "assets/Map.css";
 import { get_places } from "restapi/places";
-
 const { kakao } = window;
 
 function Map() {
@@ -41,8 +40,8 @@ function Map() {
           let infowindow = new kakao.maps.CustomOverlay({
             clickable: true,
             content: `<div id="p${res.data[i].PlaceID}" class="infowindow">
-            <h1>${res.data[i].Name}</h1>
-            <h2>${res.data[i].Object} : 6</h2>
+            <h2>${res.data[i].Name} (${res.data[i].PlaceID})</h2>
+            <h3>${res.data[i].Object} : 6 </h3> 
             <button class="close">X</button>
             
             </div>`,
