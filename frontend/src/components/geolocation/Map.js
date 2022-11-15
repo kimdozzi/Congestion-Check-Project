@@ -36,14 +36,19 @@ function Map() {
           });
           marker.setMap(kakaoMap);
 
+          // get_congestion().then((res) => {
+          //   for (let j = 0; j < res.data.length; j++) {
+          //     console.log(res.data[j]);
+          //   }
+          // });
+
           // Add infowindow
           let infowindow = new kakao.maps.CustomOverlay({
             clickable: true,
             content: `<div id="p${res.data[i].PlaceID}" class="infowindow">
             <h2>${res.data[i].Name} (${res.data[i].PlaceID})</h2>
-            <h3>${res.data[i].Object} : 6 </h3> 
+            <h3>${res.data[i].Object} : 555</h3> 
             <button class="close">X</button>
-            
             </div>`,
             position: marker.getPosition(),
             yAnchor: 1.2,
