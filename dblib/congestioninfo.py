@@ -1,13 +1,11 @@
 import pymysql
 
 def db_to_server_congestions(db, cursor, pid):
-    query = f'SELECT NumberOfObject FROM congestion_data where PlaceID = %s;'
+    query = f'SELECT NumberOfHuman FROM place_info where PlaceID = %s;'
     cursor.execute(query, (pid))
-    res = []
+    res = {}
     for i in cursor.fetchall():
-        res.append({
-            'number_of_object': i[0]
-        })
+        res['NumberOfHuman'] = i[0]
     db.commit()
 
     return res
