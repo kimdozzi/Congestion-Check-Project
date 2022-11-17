@@ -2,18 +2,18 @@ import pymysql
 
 
 def db_to_server_places(db, cursor):
-    query = f'SELECT PlaceID, Name, Latitude, Longitude, CrowdThreshold, Employees FROM place_info'
+    query = f'SELECT PlaceID, Name, Latitude, Longitude, CrowdThreshold, Employees, NumberOfHuman FROM place_info'
     cursor.execute(query)
     res = []
     for i in cursor.fetchall():
         res.append({
             'PlaceID': i[0],
-            'Name': i[1],
-            'Latitude': i[2],
-            'Latitude': i[3],
-            'CrowdThreshold': i[4],
-            'Employees': i[5]
-
+            'Name' : i[1],
+            'Latitude' : i[2],
+            'Longitude' : i[3],
+            'CrowdThreshold' : i[4],
+            'Employees' : i[5],
+            'NumberOfHuman' : i[6]
         })
     db.commit()
 
