@@ -14,7 +14,7 @@ function Map() {
       .then((res) => {
         for (let i = 0; i < res.data.length; i++) {
           var imageSrc =
-              res.data[i].Object === "human"
+              res.data[i].NumberOfHuman <= res.data[i].CrowdThreshold
                 ? "/images/marker0.png"
                 : "/images/marker1.png", // 마커이미지의 주소입니다
             imageSize = new kakao.maps.Size(29, 42), // 마커이미지의 크기입니다
@@ -26,6 +26,8 @@ function Map() {
             imageSize,
             imageOption
           );
+          console.log(i);
+          console.log(imageSrc);
 
           let marker = new kakao.maps.Marker({
             position: new kakao.maps.LatLng(
@@ -47,7 +49,7 @@ function Map() {
             clickable: true,
             content: `<div id="p${res.data[i].PlaceID}" class="infowindow">
             <h2>${res.data[i].Name} (${res.data[i].PlaceID})</h2>
-            <h3>${res.data[i].Object} : 555</h3> 
+            <h3>People : ${res.data[i].NumberOfHuman}></span></h3> 
             <button class="close">X</button>
             </div>`,
             position: marker.getPosition(),

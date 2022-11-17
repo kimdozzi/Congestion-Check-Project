@@ -90,8 +90,8 @@ export default function Services() {
           onClick={(e) => {
             post_place({
               Name: placename,
-              Employee: employee,
-              MaxiumPeople: maximumpeople,
+              Employees: employee,
+              CrowdThreshold: maximumpeople,
               Latitude: latitude,
               Longitude: longitude,
             });
