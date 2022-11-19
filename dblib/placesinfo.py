@@ -36,7 +36,7 @@ def server_to_db_place(db, cursor, data):
 
 if __name__ == "__main__":
     conn = pymysql.connect(host='localhost', port=3306, user='root',
-                           passwd='abcd1234', db='congestion_db', charset='utf8')
+                           passwd='', db='congestion_db', charset='utf8')
     with conn:
         with conn.cursor() as cs:
             dt = [{

@@ -69,4 +69,4 @@ def not_found(e):  # SPA 이므로 404 에러는 index.html을 보냄으로써 �
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port='3000')
+    app.run(host='0.0.0.0', debug=False, port='3000')
