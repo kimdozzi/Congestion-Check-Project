@@ -42,8 +42,9 @@ function Map() {
           let infowindow = new kakao.maps.CustomOverlay({
             clickable: true,
             content: `<div id="p${res.data[i].PlaceID}" class="infowindow">
-            <h2>${res.data[i].Name}</h2>
-            <h3>${res.data[i].Employees} ((${res.data[i].CrowdThreshold}))</h3>
+            <h2>(${res.data[i].PlaceID}) ${res.data[i].Name}</h2>
+            <h2>employees : ${res.data[i].Employees}</h2>
+            <h3>people: ${res.data[i].NumberOfHuman} (${res.data[i].CrowdThreshold})</h3>
             <button class="close">X</button>
             </div>`,
             position: marker.getPosition(),
