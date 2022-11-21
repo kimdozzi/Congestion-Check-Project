@@ -8,12 +8,12 @@ def db_to_server_places(db, cursor):
     for i in cursor.fetchall():
         res.append({
             'PlaceID': i[0],
-            'Name' : i[1],
-            'Latitude' : i[2],
-            'Longitude' : i[3],
-            'CrowdThreshold' : i[4],
-            'Employees' : i[5],
-            'NumberOfHuman' : i[6]
+            'Name': i[1],
+            'Latitude': i[2],
+            'Longitude': i[3],
+            'CrowdThreshold': i[4],
+            'Employees': i[5],
+            'NumberOfHuman': i[6]
         })
     db.commit()
 

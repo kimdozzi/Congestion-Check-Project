@@ -6,7 +6,7 @@ import time
 
 ht = 'localhost'
 pt = 3306
-pw = ''
+pw = 'qeqe1212'
 
 
 def db_connect():

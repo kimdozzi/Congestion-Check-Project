@@ -11,6 +11,13 @@ export default function Services() {
   const [latitude, setLatitude] = useState(35.15772848796884);
   const [longitude, setLongitude] = useState(129.05912439551273);
   const [disabled, setDisabled] = useState(false);
+  const onReset = () => {
+    setPlaceName("");
+    setEmployee(0);
+    setCrowdThreshold(0);
+    setLatitude(0);
+    setLongitude(0);
+  };
   const handleSubmit = async (event) => {
     setDisabled(true);
     event.preventDefault();
@@ -119,7 +126,7 @@ export default function Services() {
         >
           장소 등록
         </button>
-        <button type="submit">취소</button>
+        <button onClick={onReset}>초기화</button>
       </form>
     </div>
   );

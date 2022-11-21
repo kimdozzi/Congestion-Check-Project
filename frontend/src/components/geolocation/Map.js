@@ -42,11 +42,15 @@ function Map() {
           let infowindow = new kakao.maps.CustomOverlay({
             clickable: true,
             content: `<div id="p${res.data[i].PlaceID}" class="infowindow">
-            <h2>(${res.data[i].PlaceID}) ${res.data[i].Name}</h2>
-            <h2>employees : ${res.data[i].Employees}</h2>
-            <h3>people: ${res.data[i].NumberOfHuman} (${res.data[i].CrowdThreshold})</h3>
+            <ul>
+            <li>(${res.data[i].PlaceID}) ${res.data[i].Name}</li>
+            <li>직원 수 : ${res.data[i].Employees}</li>
+            <li>인원 수 : ${res.data[i].NumberOfHuman} </li>
+            <li>(제한 인원 : ${res.data[i].CrowdThreshold})</li>
+            </ul>
             <button class="close">X</button>
             </div>`,
+            // content: content,
             position: marker.getPosition(),
             yAnchor: 1.2,
             zIndex: 1000,
