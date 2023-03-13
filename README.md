@@ -29,7 +29,4 @@
     - 클라이언트에서 혼잡도 정보를 서버에 요청하면 서버에서는 데이터베이스로부터 혼잡도 데이터를 가져와서 클라이언트에 보냄
 
 ![system_flow](./.README/system_flow.JPG)
-=======
-# capstone-design
-Object Detection(YoLo)을 활용한 혼잡 여부 확인 웹 서비스 (React/flask)
->>>>>>> 1a3d5e695f54245c153aaec351828b3a17a29ed5
+
